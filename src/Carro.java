@@ -5,8 +5,9 @@ public class Carro extends Veiculo implements ICrudClass{
 
     private final CsvService CsvS = new CsvService("Carros.csv");
 
-    public Carro(String placa, String fabricante, String anoModelo, String anoFabricacao, String modelo) throws IOException {
-        super(placa, fabricante, anoModelo, anoFabricacao, modelo);
+    public Carro(String placa, String fabricante, String anoModelo,
+                 String anoFabricacao, String modelo, double valor) throws IOException {
+        super(placa, fabricante, anoModelo, anoFabricacao, modelo,valor);
         super.setTipo("Carro");
         if(super.getId() == -1) {
             int maxId = -1;
@@ -27,10 +28,25 @@ public class Carro extends Veiculo implements ICrudClass{
         CsvService CsvS = new CsvService("Carros.csv");
         CsvS.read();
         String[] dataCar = CsvS.get(id);
-        Carro car = new Carro(dataCar[1],dataCar[2],dataCar[3],dataCar[4],dataCar[5]);
+        Carro car = new Carro(dataCar[1],dataCar[2],dataCar[3],dataCar[4],dataCar[5],Double.valueOf(dataCar[6]));
         car.setId(Integer.parseInt(dataCar[0]));
-        car.setTipo(dataCar[6]);
+        car.setTipo(dataCar[7]);
         return car;
+    }
+
+    private String[] findPlaca(String placa){
+        return CsvS.searchValueInStringColumn(placa,1);
+    }
+
+    private boolean CheckIfPlacaHasAlreadyRegistered(){
+
+        if (findPlaca(getPlaca()).length > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     @Override
@@ -42,8 +58,14 @@ public class Carro extends Veiculo implements ICrudClass{
                 .append(getAnoModelo()).append(";")
                 .append(getAnoFabricacao()).append(";")
                 .append(getModelo()).append(";")
+                .append(getValor()).append(";")
                 .append(getTipo());
-        CsvS.write(buffer.toString());
+
+        if(!CheckIfPlacaHasAlreadyRegistered()) {
+            CsvS.write(buffer.toString());
+        } else {
+            System.out.println("Carro já cadastrado!");
+        }
     }
 
     @Override
@@ -56,6 +78,7 @@ public class Carro extends Veiculo implements ICrudClass{
                 .append(getAnoModelo()).append(";")
                 .append(getAnoFabricacao()).append(";")
                 .append(getModelo()).append(";")
+                .append(getValor()).append(";")
                 .append(getTipo());
         String content = buffer.toString();
         CsvS.setLine(CsvS.getLineNumber(getId())+1,content);
@@ -82,6 +105,8 @@ public class Carro extends Veiculo implements ICrudClass{
                 .append(getAnoFabricacao()).append("\n")
                 .append("Modelo: ")
                 .append(getModelo()).append("\n")
+                .append("Valor: ")
+                .append(getValor()).append("\n")
                 .append("Tipo: ")
                 .append(getTipo());
 

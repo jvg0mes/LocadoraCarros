@@ -6,14 +6,17 @@ public abstract class Veiculo{
     protected String anoModelo;
     protected String anoFabricacao;
     protected String modelo;
+    protected double valor;
     protected String tipo;
 
-    public Veiculo(String placa, String fabricante, String anoModelo, String anoFabricacao, String modelo) {
+    public Veiculo(String placa, String fabricante, String anoModelo,
+                   String anoFabricacao, String modelo, double valor) {
         this.placa = placa;
         this.fabricante = fabricante;
         this.anoModelo = anoModelo;
         this.anoFabricacao = anoFabricacao;
         this.modelo = modelo;
+        this.valor = valor;
     }
 
     public String getPlaca() {
@@ -72,4 +75,11 @@ public abstract class Veiculo{
         this.id = id;
     }
 
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 }

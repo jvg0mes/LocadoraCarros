@@ -58,6 +58,16 @@ public class CsvService{
         return(emptyList);
     };
 
+    public String[] searchValueInStringColumn(String value, int columnNumber){
+        for(String[] l: this.result){
+            if (value.equals(l[0].split(";")[columnNumber])){
+                return l[0].split(";");
+            }
+        }
+        String[] emptyList = {};
+        return(emptyList);
+    }
+
     public int getLineNumber(int id){
         int count = 0;
         for(String[] l: this.result){

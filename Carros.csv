@@ -1,17 +1,3 @@
-id;placa;fabricante;anoModelo;anoFabricacao;modelo;tipo
-1;JOA-1231;Ford;2001;2001;Ford Ka Joaninha;Carro
-4;JOA-1231;Ford;2001;2001;Ford Ka Joaninha;Carro
-5;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-6;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-8;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-9;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-10;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-11;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-12;JOA-1231;Hyundai;2001;2001;Ford Ka Joaninha;Carro
-13;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-14;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-15;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-16;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-17;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-18;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
-19;JOA-1231;Ferrari;2001;2001;Ford Ka Joaninha;Carro
+id;placa;fabricante;anoModelo;anoFabricacao;modelo;valor;tipo
+1;KEA-1249;Fiat;2022;2022;Joana;30000.0;Carro
+2;KEA-1245;Fiat;2022;2022;Joana;30000.0;Carro
