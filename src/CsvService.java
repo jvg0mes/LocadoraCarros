@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -71,6 +73,18 @@ public class CsvService{
       read();
       return((this.result.get(this.result.size()-1)[0]).split(";")[0]);
     };
+
+    public long countLines() {
+
+        long lines = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(this.fileName))) {
+            while (reader.readLine() != null) lines++;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
+
+    }
 
     public void setFileName(String fileName) {
         this.fileName = fileName;

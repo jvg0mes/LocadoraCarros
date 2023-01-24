@@ -1,30 +1,31 @@
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        Carro Carro = new Carro(
-                "JOA-1231", "Ferrari", "2001", "2001", "Ford Ka Joaninha"
-        );
+        Funcionario funci = new Funcionario("Joesley", LocalDate.of(1975,5,15),
+                "Gerente");
 
-//        Carro.create();
+        System.out.println(funci);
 
-        //Carro.read();
+        funci.create();
 
-        //Carro ferrari = Carro.loadCarro(Carro.getId());
+        funci = Funcionario.load(funci.getId());
 
-        Carro ferrari = Carro.load(12);
+        System.out.println(funci);
 
-          //ferrari.delete();
-//
-        ferrari.setFabricante("Hyundai");
+        funci.setCargo("Agente Comercial");
 
-        ferrari.update();
+        funci.update();
 
-        Carro deletar = Carro.load(3);
-        deletar.delete();
-//
-//        System.out.println(ferrari.toString());
+        System.out.println(funci);
+
+        funci = Funcionario.load(funci.getId());
+
+        System.out.println(funci);
+
+        funci.delete();
 
     }
 }

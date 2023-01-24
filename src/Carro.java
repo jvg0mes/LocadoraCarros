@@ -3,13 +3,23 @@ import java.io.IOException;
 
 public class Carro extends Veiculo implements ICrudClass{
 
-    CsvService CsvS = new CsvService("Carros.csv");
+    private final CsvService CsvS = new CsvService("Carros.csv");
 
     public Carro(String placa, String fabricante, String anoModelo, String anoFabricacao, String modelo) throws IOException {
         super(placa, fabricante, anoModelo, anoFabricacao, modelo);
         super.setTipo("Carro");
         if(super.getId() == -1) {
-            super.setId(Integer.valueOf(CsvS.getMaxId()) + 1);
+            int maxId = -1;
+            try{
+                maxId = Integer.parseInt(CsvS.getMaxId()) + 1;
+            } catch (NumberFormatException e){
+                if(CsvS.countLines() == 1) {
+                    maxId = 1;
+                }
+            }
+            if (maxId != -1) {
+                super.setId(maxId);
+            }
         }
     }
 
@@ -18,7 +28,7 @@ public class Carro extends Veiculo implements ICrudClass{
         CsvS.read();
         String[] dataCar = CsvS.get(id);
         Carro car = new Carro(dataCar[1],dataCar[2],dataCar[3],dataCar[4],dataCar[5]);
-        car.setId(Integer.valueOf(dataCar[0]));
+        car.setId(Integer.parseInt(dataCar[0]));
         car.setTipo(dataCar[6]);
         return car;
     }
