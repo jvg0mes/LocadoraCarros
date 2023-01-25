@@ -60,6 +60,9 @@ public class CsvService{
 
     public String[] searchValueInStringColumn(String value, int columnNumber){
         for(String[] l: this.result){
+
+            System.out.println("Checando valor " + l[0].split(";")[columnNumber]);
+
             if (value.equals(l[0].split(";")[columnNumber])){
                 return l[0].split(";");
             }

@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cac2b588-3de4-44c9-bc76-1a55337acf46" name="Changes" comment="Commit Csv Service e CrudClass prontos">
-      <change afterPath="$PROJECT_DIR$/src/AluguelService.java" afterDir="false" />
+    <list default="true" id="cac2b588-3de4-44c9-bc76-1a55337acf46" name="Changes" comment="Clientes e Funcionarios prontos">
+      <change afterPath="$PROJECT_DIR$/Alugueis.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Carros.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Carros.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Carro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CsvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CsvService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Clientes.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Funcionarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Funcionarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AluguelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funcionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Veiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

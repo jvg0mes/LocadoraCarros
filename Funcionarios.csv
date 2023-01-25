@@ -1,1 +1,2 @@
-id;nome;dataNascimento;cargo
+id;nome;dataNascimento;cargo;senha
+1;Joao;1990-02-01;Gerente;123

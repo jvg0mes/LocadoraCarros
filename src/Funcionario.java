@@ -2,15 +2,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Funcionario implements ICrudClass{
 
     private final CsvService CsvS = new CsvService("Funcionarios.csv");
 
-    int id = -1;
-    String nome;
-    LocalDate dataNascimento;
-    String cargo;
+    private int id = -1;
+    private String nome;
+    private LocalDate dataNascimento;
+    private String cargo;
+    private String senha;
 
     public Funcionario(String nome, LocalDate dataNascimento, String cargo) throws IOException {
         this.nome = nome;
@@ -30,6 +32,58 @@ public class Funcionario implements ICrudClass{
             }
         }
     }
+
+    private static String solicitarSenha(){
+        System.out.print("Insira a senha: ");
+        Scanner sc = new Scanner(System.in);
+        String senhaEscrita = sc.next();
+        return senhaEscrita;
+    }
+
+    private static boolean autenticarFuncionario() throws IOException {
+        CsvService CsvS = new CsvService("Funcionarios.csv");
+        CsvS.read();
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Insira o ID funcionario: ");
+        int id = sc.nextInt();
+        System.out.println("Insira a senha: ");
+        String senha = sc.next();
+        String[] dataFunci = CsvS.get(id);
+        if(senha != dataFunci[4]){
+            System.out.println("Senha Incorreta");
+            throw new IOException();
+        } else {
+            return true;
+        }
+    }
+
+    private String[] findFuncionario(String id){
+        return CsvS.searchValueInStringColumn(String.valueOf(getId()),1);
+    }
+
+    public static Funcionario login(int id) throws IOException {
+
+        CsvService CsvS = new CsvService("Funcionarios.csv");
+        CsvS.read();
+        String[] dataFunci = CsvS.get(id);
+
+        String ss = solicitarSenha();
+        if(!ss.contentEquals(dataFunci[4])){
+            System.out.println("Senha Incorreta");
+            throw new IOException();
+        } else {
+            Funcionario funcionario = new Funcionario(dataFunci[1],
+                    LocalDate.parse(dataFunci[2],DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    ,dataFunci[3]);
+            funcionario.setId(Integer.parseInt(dataFunci[0]));
+            return funcionario;
+        }
+
+    }
+
+
 
     public int getId() {
         return id;
@@ -75,11 +129,18 @@ public class Funcionario implements ICrudClass{
 
     @Override
     public void create() throws FileNotFoundException {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Insira a senha do funcionario:");
+
         StringBuilder buffer = new StringBuilder();
         buffer.append(getId()).append(";")
                 .append(getNome()).append(";")
                 .append(getDataNascimento()).append(";")
-                .append(getCargo()).append(";");
+                .append(getCargo()).append(";")
+                .append(sc.next());
+
         CsvS.write(buffer.toString());
     }
 
