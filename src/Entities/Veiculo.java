@@ -1,3 +1,5 @@
+package Entities;
+
 public abstract class Veiculo{
 
     protected int id = -1;

@@ -1,4 +1,5 @@
-import java.io.FileNotFoundException;
+package Entities;
+
 import java.io.IOException;
 
 public interface ICrudClass {

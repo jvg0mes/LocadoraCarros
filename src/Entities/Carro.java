@@ -1,7 +1,11 @@
+package Entities;
+
+import Data.CsvService;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Carro extends Veiculo implements ICrudClass{
+public class Carro extends Veiculo implements ICrudClass {
 
     private final CsvService CsvS = new CsvService("Carros.csv");
 
@@ -64,7 +68,7 @@ public class Carro extends Veiculo implements ICrudClass{
         if(!CheckIfPlacaHasAlreadyRegistered()) {
             CsvS.write(buffer.toString());
         } else {
-            System.out.println("Carro já cadastrado!");
+            System.out.println("\nCarro já cadastrado!");
         }
     }
 

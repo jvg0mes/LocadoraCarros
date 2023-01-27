@@ -1,6 +1,15 @@
+package Aluguel;
+
+import Data.CsvService;
+import Entities.Carro;
+import Entities.Cliente;
+import Entities.ICrudClass;
+
 import java.io.IOException;
 
-public class AluguelService implements ICrudClass{
+
+
+public class Aluguel implements ICrudClass {
 
     private final CsvService CsvS = new CsvService("Alugueis.csv");
 
@@ -15,7 +24,7 @@ public class AluguelService implements ICrudClass{
     private boolean pago = false;
     private boolean finalizado = false;
 
-    public AluguelService(Cliente locatario, Carro carro, int numeroDiarias) {
+    public Aluguel(Cliente locatario, Carro carro, int numeroDiarias) {
         this.locatario = locatario;
         this.carro = carro;
         this.numeroDiarias = numeroDiarias;
@@ -36,12 +45,25 @@ public class AluguelService implements ICrudClass{
         }
     }
 
-    private void registrarPagamento(){
+    private void setPago(boolean status){
+        this.pago = status;
+    }
+
+    private void setFinalizado(boolean finalizado){
+        this.finalizado = finalizado;
+    }
+
+    public void registrarPagamento(){
         this.pago = true;
     }
 
     public void finalizarAluguel(){
-        this.finalizado = true;
+        if (this.pago) {
+            this.finalizado = true;
+            System.out.println("Aluguel finalizado com sucesso!");
+        } else {
+            System.out.println("O aluguel ainda nao foi pago!");
+        }
     }
 
     public boolean getStatusPagamento(){
@@ -104,10 +126,28 @@ public class AluguelService implements ICrudClass{
         return markup;
     }
 
+    public static Aluguel load(int id) throws IOException {
+        CsvService CsvS = new CsvService("Alugueis.csv");
+        CsvS.read();
+        String[] dataAluguel = CsvS.get(id);
+
+
+        Aluguel aluguel = new Aluguel(Cliente.load(Integer.parseInt(dataAluguel[1])),
+                Carro.load(Integer.parseInt(dataAluguel[2])),
+                Integer.parseInt(dataAluguel[3]));
+        aluguel.setId(Integer.parseInt(dataAluguel[0]));
+        aluguel.setValorDiaria(Double.parseDouble(dataAluguel[4]));
+        aluguel.setValorTotal(Double.parseDouble(dataAluguel[5]));
+        aluguel.setPago(Boolean.parseBoolean(dataAluguel[6]));
+        aluguel.setFinalizado(Boolean.parseBoolean(dataAluguel[7]));
+
+        return aluguel;
+    }
+
     @Override
     public void create() throws IOException {
         StringBuilder buffer = new StringBuilder();
-        buffer.append(getId()).append(";")
+        buffer.append(Integer.valueOf(CsvS.getMaxId())+1).append(";")
                 .append(getLocatario().getId()).append(";")
                 .append(getCarro().getId()).append(";")
                 .append(getNumeroDiarias()).append(";")
@@ -122,9 +162,9 @@ public class AluguelService implements ICrudClass{
 
         if(!check) {
             CsvS.write(buffer.toString());
-            System.out.println("Carro alugado com sucesso!");
+            System.out.println("\nCarro alugado com sucesso!");
         } else {
-            System.out.println("Carro já alugado!");
+            System.out.println("\nCarro já alugado!");
         }
     }
 
@@ -133,6 +173,15 @@ public class AluguelService implements ICrudClass{
         CsvS.read();
 
         return CsvS.searchValueInStringColumn(idCarro,2);
+    }
+
+    public static String[] findIdAluguel(String idAluguel) throws IOException {
+
+        CsvService CsvS = new CsvService("Alugueis.csv");
+
+        CsvS.read();
+
+        return CsvS.searchValueInStringColumn(idAluguel,0);
     }
 
     private boolean CheckIfCarHasAlreadyRented() throws IOException {
@@ -149,17 +198,19 @@ public class AluguelService implements ICrudClass{
     @Override
     public void update() throws IOException {
 
+        CsvS.read();
+
         StringBuilder buffer = new StringBuilder();
         buffer.append(getId()).append(";")
-                .append(getId()).append(";")
                 .append(getLocatario().getId()).append(";")
                 .append(getCarro().getId()).append(";")
                 .append(getNumeroDiarias()).append(";")
                 .append(getValorDiaria()).append(";")
+                .append(getValorTotal()).append(";")
                 .append(getStatusPagamento()).append(";")
-                .append(getStatusFinal()).append(";")
-                .append(getValorTotal());
+                .append(getStatusFinal());
         String content = buffer.toString();
+
         CsvS.setLine(CsvS.getLineNumber(getId())+1,content);
     }
 

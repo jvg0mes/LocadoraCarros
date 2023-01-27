@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cac2b588-3de4-44c9-bc76-1a55337acf46" name="Changes" comment="Clientes e Funcionarios prontos">
-      <change afterPath="$PROJECT_DIR$/Alugueis.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/MetodosPagamento/Cartao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/MetodosPagamento/Dinheiro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/MetodosPagamento/Pix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pagamento/MetodosPagamento/Transferencia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alugueis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Alugueis.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Carros.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Carros.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Clientes.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Clientes.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Funcionarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Funcionarios.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AluguelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Aluguel/Aluguel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Carro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Carro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CsvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/CsvService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ICrudClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/ICrudClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entities/Veiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +36,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -53,12 +64,17 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />

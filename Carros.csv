@@ -1,3 +1,7 @@
 id;placa;fabricante;anoModelo;anoFabricacao;modelo;valor;tipo
-1;KEA-1249;Fiat;2022;2022;Joana;30000.0;Carro
-2;KEA-1245;Fiat;2022;2022;Joana;30000.0;Carro
+1;KEA-1245;Fiat;2022;2022;Joana;30000.0;Entities.Carro
+2;XEI-1234;Toyota;2000;2000;Corolla;20000.0;Entities.Carro
+3;KSD-3219;Volvo;2019;2019;Trucker;90000.0;Carro
+4;KSE-2913;Honda;2008;2007;Civic;30000.0;Carro
+5;III-2921;Fiat;2015;2014;Toro;60000.0;Carro
+6;"OOI-3219;Fiat;2000;2000;Mlie;10000.0;Carro

@@ -1,10 +1,14 @@
+package Entities;
+
+import Data.CsvService;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Funcionario implements ICrudClass{
+public class Funcionario implements ICrudClass {
 
     private final CsvService CsvS = new CsvService("Funcionarios.csv");
 
@@ -34,7 +38,7 @@ public class Funcionario implements ICrudClass{
     }
 
     private static String solicitarSenha(){
-        System.out.print("Insira a senha: ");
+        System.out.print("\nInsira a senha: ");
         Scanner sc = new Scanner(System.in);
         String senhaEscrita = sc.next();
         return senhaEscrita;
@@ -46,13 +50,13 @@ public class Funcionario implements ICrudClass{
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Insira o ID funcionario: ");
+        System.out.print("\nInsira o ID funcionario: ");
         int id = sc.nextInt();
-        System.out.println("Insira a senha: ");
+        System.out.print("\nInsira a senha: ");
         String senha = sc.next();
         String[] dataFunci = CsvS.get(id);
         if(senha != dataFunci[4]){
-            System.out.println("Senha Incorreta");
+            System.out.print("\nSenha Incorreta");
             throw new IOException();
         } else {
             return true;
@@ -71,7 +75,7 @@ public class Funcionario implements ICrudClass{
 
         String ss = solicitarSenha();
         if(!ss.contentEquals(dataFunci[4])){
-            System.out.println("Senha Incorreta");
+            System.out.println("\nSenha Incorreta");
             throw new IOException();
         } else {
             Funcionario funcionario = new Funcionario(dataFunci[1],
@@ -82,8 +86,6 @@ public class Funcionario implements ICrudClass{
         }
 
     }
-
-
 
     public int getId() {
         return id;
@@ -132,7 +134,7 @@ public class Funcionario implements ICrudClass{
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Insira a senha do funcionario:");
+        System.out.print("\nInsira a senha do funcionario:");
 
         StringBuilder buffer = new StringBuilder();
         buffer.append(getId()).append(";")
